@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>URBANA - Tienda de Ropa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Google Fonts: Playfair Display para títulos + DM Sans para cuerpo -->
+  <link rel="stylesheet" href="Css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="logo">URBANA</div>
+
+    <!-- Botón hamburguesa — solo visible en mobile -->
+    <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav id="mainNav">
+      <a href="#hero">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#productos">Productos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <!-- Botón carrito (esquina derecha) -->
+    <button class="cart-button" id="cartButton" type="button" aria-label="Abrir carrito">
+      <span class="cart-icon">🛒</span>
+      <span class="cart-count hidden" id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- =====================
+         HERO
+         ===================== -->
+    <section class="hero" id="hero">
+      <div class="hero-text">
+        <h1>Moda urbana para todos los días.</h1>
+        <p>
+          Descubrí colecciones curadas de prendas atemporales, pensadas para combinar fácilmente
+          y acompañarte en cualquier momento del día.
+        </p>
+        <div class="hero-buttons">
+          <button class="btn btn-primary" onclick="document.getElementById('productos').scrollIntoView({behavior:'smooth'})">
+            Ver colección
+          </button>
+          <button class="btn btn-outline" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">
+            Agendar asesoría
+          </button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="hero-tag">Nueva colección · Otoño/Invierno</div>
+      </div>
+    </section>
+
+    <!-- =====================
+         SERVICIOS
+         ===================== -->
+    <section id="servicios">
+      <h2 class="section-title">Servicios</h2>
+      <div class="services-grid">
+
+        <article class="service-card">
+          <div class="service-label">01</div>
+          <h3>Asesoría de estilo personalizada</h3>
+          <p>Creamos looks completos basados en tu estilo, cuerpo y rutina diaria, para que vestirte sea fácil todos los días.</p>
+          <div>
+            <span class="service-tag">Sesiones 1 a 1</span>
+            <span class="service-tag">Guía de outfits</span>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-label">02</div>
+          <h3>Armado de guardarropa cápsula</h3>
+          <p>Seleccionamos prendas clave que combinan entre sí para que tengas un armario versátil, reducido y funcional.</p>
+          <div>
+            <span class="service-tag">Minimalismo</span>
+            <span class="service-tag">Versatilidad</span>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-label">03</div>
+          <h3>Ventas online y retiro en tienda</h3>
+          <p>Comprá desde casa y elegí si querés envío a domicilio o retirar en nuestra tienda física sin costo adicional.</p>
+          <div>
+            <span class="service-tag">Envíos a todo el país</span>
+            <span class="service-tag">Retiro express</span>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-label">04</div>
+          <h3>Experiencia boutique en local</h3>
+          <p>Visitá nuestro espacio y probá las prendas con la ayuda de nuestro equipo, en un ambiente cómodo y relajado.</p>
+          <div>
+            <span class="service-tag">Atención cercana</span>
+            <span class="service-tag">Probadores amplios</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- =====================
+         PRODUCTOS
+         ===================== -->
+    <section class="productos" id="productos">
+      <div class="section-header">
+        <h2>Colección <span>Otoño / Invierno</span></h2>
+        <a href="#" class="ver-todos">Ver todos →</a>
+      </div>
+
+      <div class="productos-grid">
+
+        <div class="producto-card" data-product-name="Campera Oversize" data-product-price="89999">
+          <span class="producto-badge nuevo">Nuevo</span>
+          <img class="producto-imagen"
+            src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80"
+            alt="Campera oversize">
+          <div class="producto-info">
+            <div class="producto-categoria">Abrigos</div>
+            <div class="producto-nombre">Campera Oversize</div>
+            <div class="producto-precios">
+              <span class="precio-actual">$89.999</span>
+            </div>
+          </div>
+          <button class="btn-agregar" type="button">Agregar al carrito</button>
+        </div>
+
+        <div class="producto-card" data-product-name="Pantalón Cargo" data-product-price="54999">
+          <span class="producto-badge oferta">−20%</span>
+          <img class="producto-imagen"
+            src="https://images.unsplash.com/photo-1548624313-0396c75e4b1a?w=400&q=80"
+            alt="Pantalón cargo">
+          <div class="producto-info">
+            <div class="producto-categoria">Pantalones</div>
+            <div class="producto-nombre">Pantalón Cargo</div>
+            <div class="producto-precios">
+              <span class="precio-actual">$54.999</span>
+              <span class="precio-anterior">$68.999</span>
+            </div>
+          </div>
+          <button class="btn-agregar" type="button">Agregar al carrito</button>
+        </div>
+
+        <div class="producto-card" data-product-name="Buzo Cropped" data-product-price="42500">
+          <img class="producto-imagen"
+            src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=400&q=80"
+            alt="Buzo cropped">
+          <div class="producto-info">
+            <div class="producto-categoria">Buzos</div>
+            <div class="producto-nombre">Buzo Cropped</div>
+            <div class="producto-precios">
+              <span class="precio-actual">$42.500</span>
+            </div>
+          </div>
+          <button class="btn-agregar" type="button">Agregar al carrito</button>
+        </div>
+
+        <div class="producto-card" data-product-name="Jean Slim Fit" data-product-price="61000">
+          <span class="producto-badge nuevo">Nuevo</span>
+          <img class="producto-imagen"
+            src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&q=80"
+            alt="Jean slim">
+          <div class="producto-info">
+            <div class="producto-categoria">Jeans</div>
+            <div class="producto-nombre">Jean Slim Fit</div>
+            <div class="producto-precios">
+              <span class="precio-actual">$61.000</span>
+            </div>
+          </div>
+          <button class="btn-agregar" type="button">Agregar al carrito</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================
+         CONTACTO
+         ===================== -->
+    <section id="contacto">
+      <h2 class="section-title">Contacto</h2>
+      <div class="contact-wrapper">
+
+        <form class="contact-form">
+          <h3>Escribinos</h3>
+          <p>Completá el formulario y te respondemos dentro de las próximas 24 hs.</p>
+
+          <div class="form-group">
+            <label for="nombre">Nombre y apellido</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="tunombre@mail.com" />
+          </div>
+
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Contanos qué estás buscando..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%; margin-top:8px;">
+            Enviar mensaje
+          </button>
+        </form>
+
+        <div class="contact-info">
+          <h3>También podés encontrarnos en:</h3>
+          <p>
+            <span class="contact-highlight">Dirección</span>
+            Av. Principal 1234, CABA, Argentina
+          </p>
+          <p>
+            <span class="contact-highlight">Horario</span>
+            Lunes a sábado de 10:00 a 20:00 hs
+          </p>
+          <p>
+            <span class="contact-highlight">WhatsApp</span>
+            +54 9 11 1234-5678
+          </p>
+          <p>
+            <span class="contact-highlight">Instagram</span>
+            @urbana.store
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================
+       FOOTER
+       ===================== -->
+  <footer>
+    © <span>URBANA</span> · Todos los derechos reservados
+  </footer>
+
+  <!-- =====================
+       CART DRAWER (Panel lateral)
+       ===================== -->
+  <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-labelledby="cartTitle" aria-hidden="true">
+    <div class="cart-drawer-header">
+      <h3 id="cartTitle">Tu carrito</h3>
+      <button class="cart-close" id="cartCloseButton" type="button" aria-label="Cerrar carrito">&times;</button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty" id="cartEmptyState">
+        Tu carrito está vacío. Sumá un producto con el botón “Agregar al carrito”.
+      </div>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span>Total</span>
+        <strong id="cartTotal">$0</strong>
+      </div>
+      <button class="cart-checkout" id="cartCheckout" type="button" disabled>
+        Finalizar compra
+      </button>
+    </div>
+  </aside>
+  <script src="js/main.js"></script>
+</body>
+</html>
