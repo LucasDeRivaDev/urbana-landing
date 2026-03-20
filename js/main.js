@@ -463,3 +463,30 @@ modalOverlay.addEventListener('click', function(e) {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeModal();
 });
+
+// ======================
+// Filtro por categoría
+// ======================
+const filtrosBtns = document.querySelectorAll('.filtro-btn');
+const allCards = Array.from(document.querySelectorAll('.producto-card'));
+
+filtrosBtns.forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    // Marcar activo
+    filtrosBtns.forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+
+    const filtro = btn.dataset.filtro;
+
+    allCards.forEach(function(card) {
+      const categoria = card.querySelector('.producto-categoria');
+      if (!categoria) return;
+
+      const match = filtro === 'todos' || categoria.textContent.trim() === filtro;
+      card.style.display = match ? '' : 'none';
+    });
+
+    // Reiniciar carrusel
+    if (typeof refreshCarousel === 'function') refreshCarousel();
+  });
+});
