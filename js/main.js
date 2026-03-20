@@ -324,4 +324,27 @@
 
   refreshCarousel();
 };
-      
+
+// ======================
+// Animaciones al scroll
+// ======================
+const fadeEls = document.querySelectorAll(
+  '.service-card, .producto-card, .contact-form, .contact-info'
+);
+
+fadeEls.forEach(function(el) {
+  el.classList.add('fade-in');
+});
+
+const observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target); // solo anima una vez
+    }
+  });
+}, { threshold: 0.15 });
+
+fadeEls.forEach(function(el) {
+  observer.observe(el);
+});

@@ -1030,3 +1030,21 @@ footer span {
     grid-template-columns: 1fr;
   }
 }
+
+/* =====================
+   ANIMACIONES SCROLL
+   ===================== */
+   .fade-in {
+    opacity: 0;
+    transform: translateY(40px); /* más desplazamiento */
+    transition: opacity 0.8s ease, transform 0.8s ease; /* más lento */
+  }
+  
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .fade-in:nth-child(2) { transition-delay: 0.1s; }
+  .fade-in:nth-child(3) { transition-delay: 0.2s; }
+  .fade-in:nth-child(4) { transition-delay: 0.3s; }
