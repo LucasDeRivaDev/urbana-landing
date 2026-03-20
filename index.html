@@ -4,38 +4,43 @@
   <meta charset="UTF-8" />
   <title>URBANA - Tienda de Ropa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Google Fonts: Playfair Display para títulos + DM Sans para cuerpo -->
   <link rel="stylesheet" href="css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Banner superior -->
-<div class="top-banner">
-  <div class="top-banner-track">
-    <span>Envío gratis en compras superiores a $50.000</span>
-    <span>·</span>
-    <span>Retiro gratis en tienda</span>
-    <span>·</span>
-    <span>Hasta 12 cuotas sin interés</span>
-    <span>·</span>
-    <span>Devoluciones sin costo en 30 días</span>
-    <span>·</span>
-    <span>Envío gratis en compras superiores a $50.000</span>
-    <span>·</span>
-    <span>Retiro gratis en tienda</span>
-    <span>·</span>
-    <span>Hasta 12 cuotas sin interés</span>
-    <span>·</span>
-    <span>Devoluciones sin costo en 30 días</span>
-    <span>·</span>
+
+  <!-- =====================
+       BANNER SUPERIOR
+       ===================== -->
+  <div class="top-banner">
+    <div class="top-banner-track">
+      <span>Envío gratis en compras superiores a $50.000</span>
+      <span>·</span>
+      <span>Retiro gratis en tienda</span>
+      <span>·</span>
+      <span>Hasta 12 cuotas sin interés</span>
+      <span>·</span>
+      <span>Devoluciones sin costo en 30 días</span>
+      <span>·</span>
+      <span>Envío gratis en compras superiores a $50.000</span>
+      <span>·</span>
+      <span>Retiro gratis en tienda</span>
+      <span>·</span>
+      <span>Hasta 12 cuotas sin interés</span>
+      <span>·</span>
+      <span>Devoluciones sin costo en 30 días</span>
+      <span>·</span>
+    </div>
   </div>
-</div>
+
+  <!-- =====================
+       HEADER
+       ===================== -->
   <header>
     <div class="logo">URBANA</div>
 
-    <!-- Botón hamburguesa — solo visible en mobile -->
     <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
       <span></span>
       <span></span>
@@ -49,7 +54,6 @@
       <a href="#contacto">Contacto</a>
     </nav>
 
-    <!-- Botón carrito (esquina derecha) -->
     <button class="cart-button" id="cartButton" type="button" aria-label="Abrir carrito">
       <span class="cart-icon">🛒</span>
       <span class="cart-count hidden" id="cartCount">0</span>
@@ -140,19 +144,21 @@
         <h2>Colección <span>Otoño / Invierno</span></h2>
         <a href="#" class="ver-todos">Ver todos →</a>
       </div>
-      <!-- Filtros por categoría -->
-<div class="filtros" id="filtros">
-  <button class="filtro-btn active" data-filtro="todos" type="button">Todos</button>
-  <button class="filtro-btn" data-filtro="Abrigos" type="button">Abrigos</button>
-  <button class="filtro-btn" data-filtro="Pantalones" type="button">Pantalones</button>
-  <button class="filtro-btn" data-filtro="Buzos" type="button">Buzos</button>
-  <button class="filtro-btn" data-filtro="Jeans" type="button">Jeans</button>
-  <button class="filtro-btn" data-filtro="Remeras" type="button">Remeras</button>
-  <button class="filtro-btn" data-filtro="Vestidos" type="button">Vestidos</button>
-  <button class="filtro-btn" data-filtro="Camisas" type="button">Camisas</button>
-  <button class="filtro-btn" data-filtro="Calzado" type="button">Calzado</button>
-</div>
 
+      <!-- Filtros por categoría -->
+      <div class="filtros" id="filtros">
+        <button class="filtro-btn active" data-filtro="todos" type="button">Todos</button>
+        <button class="filtro-btn" data-filtro="Abrigos" type="button">Abrigos</button>
+        <button class="filtro-btn" data-filtro="Pantalones" type="button">Pantalones</button>
+        <button class="filtro-btn" data-filtro="Buzos" type="button">Buzos</button>
+        <button class="filtro-btn" data-filtro="Jeans" type="button">Jeans</button>
+        <button class="filtro-btn" data-filtro="Remeras" type="button">Remeras</button>
+        <button class="filtro-btn" data-filtro="Vestidos" type="button">Vestidos</button>
+        <button class="filtro-btn" data-filtro="Camisas" type="button">Camisas</button>
+        <button class="filtro-btn" data-filtro="Calzado" type="button">Calzado</button>
+      </div>
+
+      <!-- Carrusel -->
       <div class="productos-carousel" id="productosCarousel" aria-label="Carrusel de productos">
         <button class="carousel-arrow" id="productosCarouselPrev" type="button" aria-label="Producto anterior">←</button>
 
@@ -161,10 +167,8 @@
 
             <div class="producto-card" data-product-name="Campera Oversize" data-product-price="89999">
               <span class="producto-badge nuevo">Nuevo</span>
-              <img class="producto-imagen"
-                src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80"
-                alt="Campera oversize">
-                <button class="wishlist-btn" type="button" aria-label="Agregar a favoritos">♡</button>
+              <img class="producto-imagen" src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80" alt="Campera oversize">
+              <button class="wishlist-btn" type="button" aria-label="Agregar a favoritos">♡</button>
               <div class="producto-info">
                 <div class="producto-categoria">Abrigos</div>
                 <div class="producto-nombre">Campera Oversize</div>
@@ -184,10 +188,8 @@
 
             <div class="producto-card" data-product-name="Pantalón Cargo" data-product-price="54999">
               <span class="producto-badge oferta">−20%</span>
-              <img class="producto-imagen"
-                src="https://images.unsplash.com/photo-1548624313-0396c75e4b1a?w=400&q=80"
-                alt="Pantalón cargo">
-                <button class="wishlist-btn" type="button" aria-label="Agregar a favoritos">♡</button>
+              <img class="producto-imagen" src="https://images.unsplash.com/photo-1548624313-0396c75e4b1a?w=400&q=80" alt="Pantalón cargo">
+              <button class="wishlist-btn" type="button" aria-label="Agregar a favoritos">♡</button>
               <div class="producto-info">
                 <div class="producto-categoria">Pantalones</div>
                 <div class="producto-nombre">Pantalón Cargo</div>
@@ -207,10 +209,8 @@
             </div>
 
             <div class="producto-card" data-product-name="Buzo Cropped" data-product-price="42500">
-              <img class="producto-imagen"
-                src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=400&q=80"
-                alt="Buzo cropped">
-                <button class="wishlist-btn" type="button" aria-label="Agregar a favoritos">♡</button>
+              <img class="producto-imagen" src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=400&q=80" alt="Buzo cropped">
+              <button class="wishlist-btn" type="button" aria-label="Agregar a favoritos">♡</button>
               <div class="producto-info">
                 <div class="producto-categoria">Buzos</div>
                 <div class="producto-nombre">Buzo Cropped</div>
@@ -230,10 +230,8 @@
 
             <div class="producto-card" data-product-name="Jean Slim Fit" data-product-price="61000">
               <span class="producto-badge nuevo">Nuevo</span>
-              <img class="producto-imagen"
-                src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&q=80"
-                alt="Jean slim">
-                <button class="wishlist-btn" type="button" aria-label="Agregar a favoritos">♡</button>
+              <img class="producto-imagen" src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&q=80" alt="Jean slim">
+              <button class="wishlist-btn" type="button" aria-label="Agregar a favoritos">♡</button>
               <div class="producto-info">
                 <div class="producto-categoria">Jeans</div>
                 <div class="producto-nombre">Jean Slim Fit</div>
@@ -251,13 +249,10 @@
               <button class="btn-agregar" type="button">Agregar al carrito</button>
             </div>
 
-            <!-- Nuevos productos -->
             <div class="producto-card" data-product-name="Remera Básica" data-product-price="18999">
               <span class="producto-badge nuevo">Nuevo</span>
-              <img class="producto-imagen"
-                src="https://images.unsplash.com/photo-1520975661595-6453be3f7070?w=400&q=80"
-                alt="Remera básica">
-                <button class="wishlist-btn" type="button" aria-label="Agregar a favoritos">♡</button>
+              <img class="producto-imagen" src="https://images.unsplash.com/photo-1520975661595-6453be3f7070?w=400&q=80" alt="Remera básica">
+              <button class="wishlist-btn" type="button" aria-label="Agregar a favoritos">♡</button>
               <div class="producto-info">
                 <div class="producto-categoria">Remeras</div>
                 <div class="producto-nombre">Remera Básica</div>
@@ -277,10 +272,8 @@
 
             <div class="producto-card" data-product-name="Vestido Midi" data-product-price="49999">
               <span class="producto-badge oferta">−15%</span>
-              <img class="producto-imagen"
-                src="https://images.unsplash.com/photo-1520975958225-4b6b7c1c4b4a?w=400&q=80"
-                alt="Vestido midi">
-                <button class="wishlist-btn" type="button" aria-label="Agregar a favoritos">♡</button>
+              <img class="producto-imagen" src="https://images.unsplash.com/photo-1520975958225-4b6b7c1c4b4a?w=400&q=80" alt="Vestido midi">
+              <button class="wishlist-btn" type="button" aria-label="Agregar a favoritos">♡</button>
               <div class="producto-info">
                 <div class="producto-categoria">Vestidos</div>
                 <div class="producto-nombre">Vestido Midi</div>
@@ -300,10 +293,8 @@
             </div>
 
             <div class="producto-card" data-product-name="Camisa Denim" data-product-price="37999">
-              <img class="producto-imagen"
-                src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=400&q=80"
-                alt="Camisa denim">
-                <button class="wishlist-btn" type="button" aria-label="Agregar a favoritos">♡</button>
+              <img class="producto-imagen" src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=400&q=80" alt="Camisa denim">
+              <button class="wishlist-btn" type="button" aria-label="Agregar a favoritos">♡</button>
               <div class="producto-info">
                 <div class="producto-categoria">Camisas</div>
                 <div class="producto-nombre">Camisa Denim</div>
@@ -323,10 +314,8 @@
 
             <div class="producto-card" data-product-name="Zapatillas Urbanas" data-product-price="62999">
               <span class="producto-badge nuevo">Nuevo</span>
-              <img class="producto-imagen"
-                src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80"
-                alt="Zapatillas urbanas">
-                <button class="wishlist-btn" type="button" aria-label="Agregar a favoritos">♡</button>
+              <img class="producto-imagen" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="Zapatillas urbanas">
+              <button class="wishlist-btn" type="button" aria-label="Agregar a favoritos">♡</button>
               <div class="producto-info">
                 <div class="producto-categoria">Calzado</div>
                 <div class="producto-nombre">Zapatillas Urbanas</div>
@@ -363,22 +352,18 @@
         <form class="contact-form" action="https://formspree.io/f/xkoqekpb" method="POST">
           <h3>Escribinos</h3>
           <p>Completá el formulario y te respondemos dentro de las próximas 24 hs.</p>
-
           <div class="form-group">
             <label for="nombre">Nombre y apellido</label>
             <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" />
           </div>
-
           <div class="form-group">
             <label for="email">Correo electrónico</label>
             <input type="email" id="email" name="email" placeholder="tunombre@mail.com" />
           </div>
-
           <div class="form-group">
             <label for="mensaje">Mensaje</label>
             <textarea id="mensaje" name="mensaje" placeholder="Contanos qué estás buscando..."></textarea>
           </div>
-
           <button type="submit" class="btn btn-primary" style="width:100%; margin-top:8px;">
             Enviar mensaje
           </button>
@@ -386,22 +371,10 @@
 
         <div class="contact-info">
           <h3>También podés encontrarnos en:</h3>
-          <p>
-            <span class="contact-highlight">Dirección</span>
-            Av. Principal 1234, CABA, Argentina
-          </p>
-          <p>
-            <span class="contact-highlight">Horario</span>
-            Lunes a sábado de 10:00 a 20:00 hs
-          </p>
-          <p>
-            <span class="contact-highlight">WhatsApp</span>
-            +54 9 11 1234-5678
-          </p>
-          <p>
-            <span class="contact-highlight">Instagram</span>
-            @urbana.store
-          </p>
+          <p><span class="contact-highlight">Dirección</span>Av. Principal 1234, CABA, Argentina</p>
+          <p><span class="contact-highlight">Horario</span>Lunes a sábado de 10:00 a 20:00 hs</p>
+          <p><span class="contact-highlight">WhatsApp</span>+54 9 11 1234-5678</p>
+          <p><span class="contact-highlight">Instagram</span>@urbana.store</p>
         </div>
 
       </div>
@@ -417,7 +390,7 @@
   </footer>
 
   <!-- =====================
-       CART DRAWER (Panel lateral)
+       CART DRAWER
        ===================== -->
   <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
 
@@ -426,13 +399,11 @@
       <h3 id="cartTitle">Tu carrito</h3>
       <button class="cart-close" id="cartCloseButton" type="button" aria-label="Cerrar carrito">&times;</button>
     </div>
-
     <div class="cart-items" id="cartItems">
       <div class="cart-empty" id="cartEmptyState">
-        Tu carrito está vacío. Sumá un producto con el botón “Agregar al carrito”.
+        Tu carrito está vacío. Sumá un producto con el botón "Agregar al carrito".
       </div>
     </div>
-
     <div class="cart-footer">
       <div class="cart-total-row">
         <span>Total</span>
@@ -443,44 +414,50 @@
       </button>
     </div>
   </aside>
-  <!-- Botón WhatsApp flotante -->
-<a class="whatsapp-btn" 
-href="https://wa.me/5491112345678?text=Hola!%20Vi%20su%20tienda%20y%20quisiera%20consultar%20sobre%20un%20producto." 
-target="_blank" 
-aria-label="Contactar por WhatsApp">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
- <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
- <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.118 1.523 5.847L.057 23.882l6.2-1.627A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.68.965.981-3.595-.234-.369A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
-</svg>
-</a>
-  <!-- Modal de producto -->
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal" id="modal">
-    <button class="modal-close" id="modalClose">&times;</button>
-    <div class="modal-content">
-      <div class="modal-imagen-wrap">
-        <img class="modal-imagen" id="modalImagen" src="" alt="">
-        <span class="modal-badge" id="modalBadge"></span>
-      </div>
-      <div class="modal-info">
-        <div class="modal-categoria" id="modalCategoria"></div>
-        <h2 class="modal-nombre" id="modalNombre"></h2>
-        <div class="modal-precios" id="modalPrecios"></div>
-        <div class="modal-talles-label">Seleccioná un talle</div>
-        <div class="modal-talles" id="modalTalles">
-          <button type="button" class="talle-btn" data-size="S">S</button>
-          <button type="button" class="talle-btn" data-size="M">M</button>
-          <button type="button" class="talle-btn" data-size="L">L</button>
-          <button type="button" class="talle-btn" data-size="XL">XL</button>
+
+  <!-- =====================
+       MODAL DE PRODUCTO
+       ===================== -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-content">
+        <div class="modal-imagen-wrap">
+          <img class="modal-imagen" id="modalImagen" src="" alt="">
+          <span class="modal-badge" id="modalBadge"></span>
         </div>
-        <div class="talle-error" id="modalTalleError">Seleccioná un talle</div>
-        <button class="btn btn-primary modal-agregar" id="modalAgregar" type="button">
-          Agregar al carrito
-        </button>
+        <div class="modal-info">
+          <div class="modal-categoria" id="modalCategoria"></div>
+          <h2 class="modal-nombre" id="modalNombre"></h2>
+          <div class="modal-precios" id="modalPrecios"></div>
+          <div class="modal-talles-label">Seleccioná un talle</div>
+          <div class="modal-talles" id="modalTalles">
+            <button type="button" class="talle-btn" data-size="S">S</button>
+            <button type="button" class="talle-btn" data-size="M">M</button>
+            <button type="button" class="talle-btn" data-size="L">L</button>
+            <button type="button" class="talle-btn" data-size="XL">XL</button>
+          </div>
+          <div class="talle-error" id="modalTalleError">Seleccioná un talle</div>
+          <button class="btn btn-primary modal-agregar" id="modalAgregar" type="button">
+            Agregar al carrito
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+  <!-- =====================
+       WHATSAPP FLOTANTE
+       ===================== -->
+  <a class="whatsapp-btn"
+    href="https://wa.me/5491112345678?text=Hola!%20Vi%20su%20tienda%20y%20quisiera%20consultar%20sobre%20un%20producto."
+    target="_blank"
+    aria-label="Contactar por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.118 1.523 5.847L.057 23.882l6.2-1.627A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.68.965.981-3.595-.234-.369A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+    </svg>
+  </a>
 
   <script src="js/main.js"></script>
 </body>
