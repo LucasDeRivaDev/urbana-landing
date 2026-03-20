@@ -348,3 +348,118 @@ const observer = new IntersectionObserver(function(entries) {
 fadeEls.forEach(function(el) {
   observer.observe(el);
 });
+
+// ======================
+// Modal de producto
+// ======================
+const modalOverlay = document.getElementById('modalOverlay');
+const modalClose = document.getElementById('modalClose');
+const modalImagen = document.getElementById('modalImagen');
+const modalBadge = document.getElementById('modalBadge');
+const modalCategoria = document.getElementById('modalCategoria');
+const modalNombre = document.getElementById('modalNombre');
+const modalPrecios = document.getElementById('modalPrecios');
+const modalTalles = document.getElementById('modalTalles');
+const modalTalleError = document.getElementById('modalTalleError');
+const modalAgregar = document.getElementById('modalAgregar');
+
+let modalSelectedSize = '';
+let modalProductName = '';
+let modalProductPrice = 0;
+
+function openModal(card) {
+  const name = card.dataset.productName;
+  const price = parseInt(card.dataset.productPrice || '0', 10);
+  const img = card.querySelector('.producto-imagen');
+  const badge = card.querySelector('.producto-badge');
+  const categoria = card.querySelector('.producto-categoria');
+  const precioActual = card.querySelector('.precio-actual');
+  const precioAnterior = card.querySelector('.precio-anterior');
+
+  modalProductName = name;
+  modalProductPrice = price;
+  modalSelectedSize = '';
+
+  modalImagen.src = img ? img.src : '';
+  modalImagen.alt = img ? img.alt : '';
+
+  if (badge) {
+    modalBadge.textContent = badge.textContent;
+    modalBadge.className = 'modal-badge ' + (badge.classList.contains('nuevo') ? 'nuevo' : 'oferta');
+  } else {
+    modalBadge.textContent = '';
+    modalBadge.className = 'modal-badge';
+  }
+
+  modalCategoria.textContent = categoria ? categoria.textContent : '';
+  modalNombre.textContent = name;
+
+  modalPrecios.innerHTML = '';
+  if (precioActual) {
+    const span = document.createElement('span');
+    span.className = 'precio-actual';
+    span.textContent = precioActual.textContent;
+    modalPrecios.appendChild(span);
+  }
+  if (precioAnterior) {
+    const span = document.createElement('span');
+    span.className = 'precio-anterior';
+    span.textContent = precioAnterior.textContent;
+    modalPrecios.appendChild(span);
+  }
+
+  // Reset talles
+  modalTalles.querySelectorAll('.talle-btn').forEach(function(btn) {
+    btn.classList.remove('selected');
+  });
+  modalTalleError.classList.remove('visible');
+
+  modalOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  modalOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Click en imagen de producto abre modal
+document.querySelectorAll('.producto-card .producto-imagen').forEach(function(img) {
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', function(e) {
+    e.stopPropagation();
+    openModal(img.closest('.producto-card'));
+  });
+});
+
+// Talles en el modal
+modalTalles.querySelectorAll('.talle-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    modalTalles.querySelectorAll('.talle-btn').forEach(function(b) {
+      b.classList.remove('selected');
+    });
+    btn.classList.add('selected');
+    modalSelectedSize = btn.dataset.size;
+    modalTalleError.classList.remove('visible');
+  });
+});
+
+// Agregar desde modal
+modalAgregar.addEventListener('click', function() {
+  if (!modalSelectedSize) {
+    modalTalleError.classList.add('visible');
+    return;
+  }
+  addToCart(modalProductName, modalProductPrice, modalSelectedSize);
+  closeModal();
+  openCart();
+});
+
+// Cerrar modal
+modalClose.addEventListener('click', closeModal);
+modalOverlay.addEventListener('click', function(e) {
+  if (e.target === modalOverlay) closeModal();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
