@@ -86,6 +86,7 @@
           row.innerHTML = `
             <div class="cart-item-left">
               <div class="cart-item-name">${item.name}<span class="cart-qty">× ${item.qty}</span></div>
+              <div class="cart-item-size">Talle ${item.size}</div>
               <div class="cart-item-price">${formatARS(item.price * item.qty)}</div>
             </div>
             <div class="cart-item-right">
@@ -100,8 +101,8 @@
         });
       }
   
-      function addToCart(productName, productPrice) {
-        const existing = cart.find((it) => it.name === productName && it.price === productPrice);
+      function addToCart(productName, productPrice, productSize) {
+        const existing = cart.find((it) => it.name === productName && it.price === productPrice && it.size === productSize);
         if (existing) {
           existing.qty += 1;
         } else {
@@ -109,6 +110,7 @@
             id: nextCartItemId++,
             name: productName,
             price: productPrice,
+            size: productSize,
             qty: 1
           });
         }
@@ -146,6 +148,26 @@
         if (e.key === 'Escape') closeCart();
       });
   
+      // Selección de talle por producto
+      document.querySelectorAll('.producto-card').forEach(function(card) {
+        const errorEl = card.querySelector('.talle-error');
+        const sizeButtons = card.querySelectorAll('.talle-btn');
+
+        card.dataset.selectedSize = '';
+
+        sizeButtons.forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            const selected = btn.dataset.size || '';
+
+            sizeButtons.forEach(function(b) { b.classList.remove('selected'); });
+            if (selected) btn.classList.add('selected');
+
+            card.dataset.selectedSize = selected;
+            if (errorEl) errorEl.classList.remove('visible');
+          });
+        });
+      });
+
       // Agregar productos
       document.querySelectorAll('.btn-agregar').forEach(function(btn) {
         btn.addEventListener('click', function() {
@@ -154,9 +176,18 @@
   
           const name = card.dataset.productName;
           const price = parseInt(card.dataset.productPrice || '0', 10);
+          const selectedSize = card.dataset.selectedSize;
+          const errorEl = card.querySelector('.talle-error');
           if (!name || !price) return;
   
-          addToCart(name, price);
+          if (!selectedSize) {
+            if (errorEl) errorEl.classList.add('visible');
+            return;
+          }
+
+          if (errorEl) errorEl.classList.remove('visible');
+
+          addToCart(name, price, selectedSize);
           openCart(); // muestra el carrito al agregar
         });
       });
