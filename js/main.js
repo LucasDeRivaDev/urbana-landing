@@ -490,3 +490,49 @@ filtrosBtns.forEach(function(btn) {
     if (typeof refreshCarousel === 'function') refreshCarousel();
   });
 });
+
+// ======================
+// Wishlist — favoritos
+// ======================
+let wishlist = JSON.parse(localStorage.getItem('urbana-wishlist') || '[]');
+
+function saveWishlist() {
+  localStorage.setItem('urbana-wishlist', JSON.stringify(wishlist));
+}
+
+function initWishlistButtons() {
+  document.querySelectorAll('.producto-card').forEach(function(card) {
+    const btn = card.querySelector('.wishlist-btn');
+    if (!btn) return;
+
+    const name = card.dataset.productName;
+
+    // Restaurar estado guardado
+    if (wishlist.includes(name)) {
+      btn.classList.add('active');
+      btn.textContent = '♥';
+      btn.setAttribute('aria-label', 'Quitar de favoritos');
+    }
+
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation(); // no abre el modal
+      const inList = wishlist.includes(name);
+
+      if (inList) {
+        wishlist = wishlist.filter(function(n) { return n !== name; });
+        btn.classList.remove('active');
+        btn.textContent = '♡';
+        btn.setAttribute('aria-label', 'Agregar a favoritos');
+      } else {
+        wishlist.push(name);
+        btn.classList.add('active');
+        btn.textContent = '♥';
+        btn.setAttribute('aria-label', 'Quitar de favoritos');
+      }
+
+      saveWishlist();
+    });
+  });
+}
+
+initWishlistButtons();

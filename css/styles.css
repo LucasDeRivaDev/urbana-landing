@@ -1239,3 +1239,35 @@ footer span {
     border-color: #111;
     color: #fff;
   }
+
+  /* =====================
+   WISHLIST
+   ===================== */
+.wishlist-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255,255,255,0.9);
+  color: #111;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+  z-index: 2;
+  backdrop-filter: blur(4px);
+}
+
+.wishlist-btn:hover {
+  transform: scale(1.15);
+}
+
+.wishlist-btn.active {
+  color: #e11d48;
+  background: #fff;
+}
