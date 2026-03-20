@@ -225,4 +225,103 @@
   
       // Estado inicial
       renderCart();
-  
+
+     // ======================
+     // Carrusel de productos
+      // ======================
+    const productosCarousel = document.getElementById('productosCarousel');
+      if (productosCarousel) {
+        const viewport = document.getElementById('productosCarouselViewport');
+        const track = document.getElementById('productosCarouselTrack');
+        const prevBtn = document.getElementById('productosCarouselPrev');
+        const nextBtn = document.getElementById('productosCarouselNext');
+        const dotsWrap = document.getElementById('productosCarouselDots');
+
+        const originalCards = Array.from(track.querySelectorAll('.producto-card'));
+        let cardsPerView = 4;
+        let currentPage = 0;
+        let pages = 1;
+        let isAnimating = false;
+
+        function getCardsPerView() {
+          if (window.innerWidth <= 720) return 1;
+          if (window.innerWidth <= 1024) return 2;
+          return 4;
+        }
+
+        function getCardWidth() {
+          const card = track.querySelector('.producto-card');
+          if (!card) return 0;
+          const gap = 24;
+          return card.offsetWidth + gap;
+        }
+
+        function goToPage(page, smooth) {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    // Loop infinito
+    if (page < 0) page = pages - 1;
+    if (page >= pages) page = 0;
+
+    currentPage = page;
+    const offset = currentPage * cardsPerView * getCardWidth();
+
+    viewport.scrollTo({ left: offset, behavior: smooth ? 'smooth' : 'auto' });
+
+    updateDotsUI();
+
+    setTimeout(function() { isAnimating = false; }, 400);
+  }
+
+  function updateDotsUI() {
+    if (!dotsWrap) return;
+    Array.from(dotsWrap.querySelectorAll('.carousel-dot')).forEach(function(btn, i) {
+      const active = i === currentPage;
+      btn.classList.toggle('active', active);
+      btn.textContent = active ? '•' : '○';
+    });
+  }
+
+  function buildDotsUI() {
+    if (!dotsWrap) return;
+    dotsWrap.innerHTML = '';
+    for (let i = 0; i < pages; i++) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      btn.setAttribute('aria-label', 'Ir a página ' + (i + 1));
+      btn.textContent = i === 0 ? '•' : '○';
+      btn.addEventListener('click', function() { goToPage(i, true); });
+      dotsWrap.appendChild(btn);
+    }
+  }
+
+  function refreshCarousel() {
+    cardsPerView = getCardsPerView();
+    productosCarousel.style.setProperty('--carousel-cards-per-view', String(cardsPerView));
+    pages = Math.max(1, Math.ceil(originalCards.length / cardsPerView));
+    currentPage = 0;
+
+    // Ir al inicio sin animación
+    viewport.scrollTo({ left: 0, behavior: 'auto' });
+
+    buildDotsUI();
+  }
+
+  prevBtn.addEventListener('click', function() { goToPage(currentPage - 1, true); });
+  nextBtn.addEventListener('click', function() { goToPage(currentPage + 1, true); });
+
+  // Las flechas nunca se deshabilitan
+  prevBtn.disabled = false;
+  nextBtn.disabled = false;
+
+  let resizeTimer = null;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(refreshCarousel, 150);
+  });
+
+  refreshCarousel();
+};
+      

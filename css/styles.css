@@ -575,6 +575,110 @@ h2.section-title {
   gap: 24px;
 }
 
+/* =====================
+   CARRUSEL PRODUCTOS
+   ===================== */
+.productos-carousel {
+  --carousel-gap: 24px;
+  --carousel-cards-per-view: 4;
+  display: grid;
+  grid-template-columns: 56px 1fr 56px;
+  align-items: center;
+  gap: 12px;
+}
+
+.productos-carousel-viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
+
+.productos-carousel-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.productos-carousel-viewport {
+  scrollbar-width: none;
+}
+
+.productos-carousel-track {
+  display: flex;
+  gap: var(--carousel-gap);
+  padding: 6px 0;
+}
+
+.productos-carousel-track .producto-card {
+  flex: 0 0 calc((100% - (var(--carousel-gap) * (var(--carousel-cards-per-view) - 1))) / var(--carousel-cards-per-view));
+}
+
+.carousel-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1.5px solid #facc15;
+  background: transparent;
+  color: #facc15;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease, opacity 0.2s ease;
+  user-select: none;
+}
+
+.carousel-arrow:hover {
+  background: #facc15;
+  color: #111;
+  transform: translateY(-1px);
+}
+
+.carousel-arrow:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.carousel-dots {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.carousel-dot {
+  border: none;
+  background: transparent;
+  color: rgba(250, 204, 21, 0.45);
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.2s ease, transform 0.15s ease;
+}
+
+.carousel-dot:hover {
+  transform: translateY(-1px);
+}
+
+.carousel-dot.active {
+  color: #facc15;
+}
+
+@media (max-width: 1024px) {
+  .productos-carousel {
+    --carousel-cards-per-view: 2;
+  }
+}
+
+@media (max-width: 720px) {
+  .productos-carousel {
+    --carousel-cards-per-view: 1;
+    grid-template-columns: 44px 1fr 44px;
+  }
+}
+
 .producto-card {
   background: #fff;
   border-radius: 16px;

@@ -120,97 +120,196 @@
         <a href="#" class="ver-todos">Ver todos →</a>
       </div>
 
-      <div class="productos-grid">
+      <div class="productos-carousel" id="productosCarousel" aria-label="Carrusel de productos">
+        <button class="carousel-arrow" id="productosCarouselPrev" type="button" aria-label="Producto anterior">←</button>
 
-        <div class="producto-card" data-product-name="Campera Oversize" data-product-price="89999">
-          <span class="producto-badge nuevo">Nuevo</span>
-          <img class="producto-imagen"
-            src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80"
-            alt="Campera oversize">
-          <div class="producto-info">
-            <div class="producto-categoria">Abrigos</div>
-            <div class="producto-nombre">Campera Oversize</div>
-            <div class="producto-precios">
-              <span class="precio-actual">$89.999</span>
+        <div class="productos-carousel-viewport" id="productosCarouselViewport">
+          <div class="productos-carousel-track" id="productosCarouselTrack">
+
+            <div class="producto-card" data-product-name="Campera Oversize" data-product-price="89999">
+              <span class="producto-badge nuevo">Nuevo</span>
+              <img class="producto-imagen"
+                src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80"
+                alt="Campera oversize">
+              <div class="producto-info">
+                <div class="producto-categoria">Abrigos</div>
+                <div class="producto-nombre">Campera Oversize</div>
+                <div class="producto-precios">
+                  <span class="precio-actual">$89.999</span>
+                </div>
+              </div>
+              <div class="talles-selector" role="group" aria-label="Seleccioná un talle">
+                <button type="button" class="talle-btn" data-size="S">S</button>
+                <button type="button" class="talle-btn" data-size="M">M</button>
+                <button type="button" class="talle-btn" data-size="L">L</button>
+                <button type="button" class="talle-btn" data-size="XL">XL</button>
+              </div>
+              <div class="talle-error">Seleccioná un talle</div>
+              <button class="btn-agregar" type="button">Agregar al carrito</button>
             </div>
+
+            <div class="producto-card" data-product-name="Pantalón Cargo" data-product-price="54999">
+              <span class="producto-badge oferta">−20%</span>
+              <img class="producto-imagen"
+                src="https://images.unsplash.com/photo-1548624313-0396c75e4b1a?w=400&q=80"
+                alt="Pantalón cargo">
+              <div class="producto-info">
+                <div class="producto-categoria">Pantalones</div>
+                <div class="producto-nombre">Pantalón Cargo</div>
+                <div class="producto-precios">
+                  <span class="precio-actual">$54.999</span>
+                  <span class="precio-anterior">$68.999</span>
+                </div>
+              </div>
+              <div class="talles-selector" role="group" aria-label="Seleccioná un talle">
+                <button type="button" class="talle-btn" data-size="S">S</button>
+                <button type="button" class="talle-btn" data-size="M">M</button>
+                <button type="button" class="talle-btn" data-size="L">L</button>
+                <button type="button" class="talle-btn" data-size="XL">XL</button>
+              </div>
+              <div class="talle-error">Seleccioná un talle</div>
+              <button class="btn-agregar" type="button">Agregar al carrito</button>
+            </div>
+
+            <div class="producto-card" data-product-name="Buzo Cropped" data-product-price="42500">
+              <img class="producto-imagen"
+                src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=400&q=80"
+                alt="Buzo cropped">
+              <div class="producto-info">
+                <div class="producto-categoria">Buzos</div>
+                <div class="producto-nombre">Buzo Cropped</div>
+                <div class="producto-precios">
+                  <span class="precio-actual">$42.500</span>
+                </div>
+              </div>
+              <div class="talles-selector" role="group" aria-label="Seleccioná un talle">
+                <button type="button" class="talle-btn" data-size="S">S</button>
+                <button type="button" class="talle-btn" data-size="M">M</button>
+                <button type="button" class="talle-btn" data-size="L">L</button>
+                <button type="button" class="talle-btn" data-size="XL">XL</button>
+              </div>
+              <div class="talle-error">Seleccioná un talle</div>
+              <button class="btn-agregar" type="button">Agregar al carrito</button>
+            </div>
+
+            <div class="producto-card" data-product-name="Jean Slim Fit" data-product-price="61000">
+              <span class="producto-badge nuevo">Nuevo</span>
+              <img class="producto-imagen"
+                src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&q=80"
+                alt="Jean slim">
+              <div class="producto-info">
+                <div class="producto-categoria">Jeans</div>
+                <div class="producto-nombre">Jean Slim Fit</div>
+                <div class="producto-precios">
+                  <span class="precio-actual">$61.000</span>
+                </div>
+              </div>
+              <div class="talles-selector" role="group" aria-label="Seleccioná un talle">
+                <button type="button" class="talle-btn" data-size="S">S</button>
+                <button type="button" class="talle-btn" data-size="M">M</button>
+                <button type="button" class="talle-btn" data-size="L">L</button>
+                <button type="button" class="talle-btn" data-size="XL">XL</button>
+              </div>
+              <div class="talle-error">Seleccioná un talle</div>
+              <button class="btn-agregar" type="button">Agregar al carrito</button>
+            </div>
+
+            <!-- Nuevos productos -->
+            <div class="producto-card" data-product-name="Remera Básica" data-product-price="18999">
+              <span class="producto-badge nuevo">Nuevo</span>
+              <img class="producto-imagen"
+                src="https://images.unsplash.com/photo-1520975661595-6453be3f7070?w=400&q=80"
+                alt="Remera básica">
+              <div class="producto-info">
+                <div class="producto-categoria">Remeras</div>
+                <div class="producto-nombre">Remera Básica</div>
+                <div class="producto-precios">
+                  <span class="precio-actual">$18.999</span>
+                </div>
+              </div>
+              <div class="talles-selector" role="group" aria-label="Seleccioná un talle">
+                <button type="button" class="talle-btn" data-size="S">S</button>
+                <button type="button" class="talle-btn" data-size="M">M</button>
+                <button type="button" class="talle-btn" data-size="L">L</button>
+                <button type="button" class="talle-btn" data-size="XL">XL</button>
+              </div>
+              <div class="talle-error">Seleccioná un talle</div>
+              <button class="btn-agregar" type="button">Agregar al carrito</button>
+            </div>
+
+            <div class="producto-card" data-product-name="Vestido Midi" data-product-price="49999">
+              <span class="producto-badge oferta">−15%</span>
+              <img class="producto-imagen"
+                src="https://images.unsplash.com/photo-1520975958225-4b6b7c1c4b4a?w=400&q=80"
+                alt="Vestido midi">
+              <div class="producto-info">
+                <div class="producto-categoria">Vestidos</div>
+                <div class="producto-nombre">Vestido Midi</div>
+                <div class="producto-precios">
+                  <span class="precio-actual">$49.999</span>
+                  <span class="precio-anterior">$58.999</span>
+                </div>
+              </div>
+              <div class="talles-selector" role="group" aria-label="Seleccioná un talle">
+                <button type="button" class="talle-btn" data-size="S">S</button>
+                <button type="button" class="talle-btn" data-size="M">M</button>
+                <button type="button" class="talle-btn" data-size="L">L</button>
+                <button type="button" class="talle-btn" data-size="XL">XL</button>
+              </div>
+              <div class="talle-error">Seleccioná un talle</div>
+              <button class="btn-agregar" type="button">Agregar al carrito</button>
+            </div>
+
+            <div class="producto-card" data-product-name="Camisa Denim" data-product-price="37999">
+              <img class="producto-imagen"
+                src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=400&q=80"
+                alt="Camisa denim">
+              <div class="producto-info">
+                <div class="producto-categoria">Camisas</div>
+                <div class="producto-nombre">Camisa Denim</div>
+                <div class="producto-precios">
+                  <span class="precio-actual">$37.999</span>
+                </div>
+              </div>
+              <div class="talles-selector" role="group" aria-label="Seleccioná un talle">
+                <button type="button" class="talle-btn" data-size="S">S</button>
+                <button type="button" class="talle-btn" data-size="M">M</button>
+                <button type="button" class="talle-btn" data-size="L">L</button>
+                <button type="button" class="talle-btn" data-size="XL">XL</button>
+              </div>
+              <div class="talle-error">Seleccioná un talle</div>
+              <button class="btn-agregar" type="button">Agregar al carrito</button>
+            </div>
+
+            <div class="producto-card" data-product-name="Zapatillas Urbanas" data-product-price="62999">
+              <span class="producto-badge nuevo">Nuevo</span>
+              <img class="producto-imagen"
+                src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80"
+                alt="Zapatillas urbanas">
+              <div class="producto-info">
+                <div class="producto-categoria">Calzado</div>
+                <div class="producto-nombre">Zapatillas Urbanas</div>
+                <div class="producto-precios">
+                  <span class="precio-actual">$62.999</span>
+                </div>
+              </div>
+              <div class="talles-selector" role="group" aria-label="Seleccioná un talle">
+                <button type="button" class="talle-btn" data-size="S">S</button>
+                <button type="button" class="talle-btn" data-size="M">M</button>
+                <button type="button" class="talle-btn" data-size="L">L</button>
+                <button type="button" class="talle-btn" data-size="XL">XL</button>
+              </div>
+              <div class="talle-error">Seleccioná un talle</div>
+              <button class="btn-agregar" type="button">Agregar al carrito</button>
+            </div>
+
           </div>
-          <div class="talles-selector" role="group" aria-label="Seleccioná un talle">
-            <button type="button" class="talle-btn" data-size="S">S</button>
-            <button type="button" class="talle-btn" data-size="M">M</button>
-            <button type="button" class="talle-btn" data-size="L">L</button>
-            <button type="button" class="talle-btn" data-size="XL">XL</button>
-          </div>
-          <div class="talle-error">Seleccioná un talle</div>
-          <button class="btn-agregar" type="button">Agregar al carrito</button>
         </div>
 
-        <div class="producto-card" data-product-name="Pantalón Cargo" data-product-price="54999">
-          <span class="producto-badge oferta">−20%</span>
-          <img class="producto-imagen"
-            src="https://images.unsplash.com/photo-1548624313-0396c75e4b1a?w=400&q=80"
-            alt="Pantalón cargo">
-          <div class="producto-info">
-            <div class="producto-categoria">Pantalones</div>
-            <div class="producto-nombre">Pantalón Cargo</div>
-            <div class="producto-precios">
-              <span class="precio-actual">$54.999</span>
-              <span class="precio-anterior">$68.999</span>
-            </div>
-          </div>
-          <div class="talles-selector" role="group" aria-label="Seleccioná un talle">
-            <button type="button" class="talle-btn" data-size="S">S</button>
-            <button type="button" class="talle-btn" data-size="M">M</button>
-            <button type="button" class="talle-btn" data-size="L">L</button>
-            <button type="button" class="talle-btn" data-size="XL">XL</button>
-          </div>
-          <div class="talle-error">Seleccioná un talle</div>
-          <button class="btn-agregar" type="button">Agregar al carrito</button>
-        </div>
-
-        <div class="producto-card" data-product-name="Buzo Cropped" data-product-price="42500">
-          <img class="producto-imagen"
-            src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=400&q=80"
-            alt="Buzo cropped">
-          <div class="producto-info">
-            <div class="producto-categoria">Buzos</div>
-            <div class="producto-nombre">Buzo Cropped</div>
-            <div class="producto-precios">
-              <span class="precio-actual">$42.500</span>
-            </div>
-          </div>
-          <div class="talles-selector" role="group" aria-label="Seleccioná un talle">
-            <button type="button" class="talle-btn" data-size="S">S</button>
-            <button type="button" class="talle-btn" data-size="M">M</button>
-            <button type="button" class="talle-btn" data-size="L">L</button>
-            <button type="button" class="talle-btn" data-size="XL">XL</button>
-          </div>
-          <div class="talle-error">Seleccioná un talle</div>
-          <button class="btn-agregar" type="button">Agregar al carrito</button>
-        </div>
-
-        <div class="producto-card" data-product-name="Jean Slim Fit" data-product-price="61000">
-          <span class="producto-badge nuevo">Nuevo</span>
-          <img class="producto-imagen"
-            src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&q=80"
-            alt="Jean slim">
-          <div class="producto-info">
-            <div class="producto-categoria">Jeans</div>
-            <div class="producto-nombre">Jean Slim Fit</div>
-            <div class="producto-precios">
-              <span class="precio-actual">$61.000</span>
-            </div>
-          </div>
-          <div class="talles-selector" role="group" aria-label="Seleccioná un talle">
-            <button type="button" class="talle-btn" data-size="S">S</button>
-            <button type="button" class="talle-btn" data-size="M">M</button>
-            <button type="button" class="talle-btn" data-size="L">L</button>
-            <button type="button" class="talle-btn" data-size="XL">XL</button>
-          </div>
-          <div class="talle-error">Seleccioná un talle</div>
-          <button class="btn-agregar" type="button">Agregar al carrito</button>
-        </div>
-
+        <button class="carousel-arrow" id="productosCarouselNext" type="button" aria-label="Producto siguiente">→</button>
       </div>
+
+      <div class="carousel-dots" id="productosCarouselDots" aria-label="Paginación de productos"></div>
     </section>
 
     <!-- =====================
